@@ -1,13 +1,13 @@
-Pillow==8.4.0
-numpy==1.23.4
-tqdm==4.65.0
-scikit-learn==1.0.2
-ultralytics==0.6.2
-customtkinter==1.1.0
-opencv-python==4.5.4.58
-pandas==2.1.1
-matplotlib==3.4.4
-scikit-image==0.19.1
+Pillow==10.3.0
+numpy==1.26.4
+tqdm==4.66.2
+scikit-learn==1.2.0
+scikit-image==0.23.2
+ultralytics==8.0.220
+customtkinter==5.2.2
+opencv-python==4.9.0.80
+pandas==2.2.2.
+matplotlib==3.8.4
 
 
 

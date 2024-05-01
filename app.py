@@ -1,7 +1,7 @@
 import cv2
-import tkinter as tk
+import requests
 import customtkinter as ctk
-from PIL import Image, ImageTk
+from PIL import Image
 
 appWidth, appHeight = 1920, 1080
 
@@ -23,6 +23,13 @@ class MathExpressionRecognizerApp:
 
         self.camera_label = ctk.CTkLabel(self.left_frame, text="")
         self.camera_label.grid(pady=appHeight/4-20)
+
+        # input text box to write the math expression
+        self.input_label = ctk.CTkLabel(self.right_frame, text="Input:", font=("Arial", 30))
+        self.input_label.grid(pady=10)
+
+        self.input_text = ctk.CTkEntry(self.right_frame, font=("Arial", 30), corner_radius=2)
+        self.input_text.grid(pady=10)
 
         self.execute_button = ctk.CTkButton(self.right_frame, text="Calculate", command=self.execute, font=("Arial", 40), corner_radius=2)
         self.execute_button.grid(padx=(appWidth/4)-100, pady=10)
@@ -69,10 +76,30 @@ class MathExpressionRecognizerApp:
     def recognize_math_expression(self, image):
         # Use your math expression recognition model to process the image
         # Replace this with your actual recognition code
-        base_url = "http://api.wolframalpha.com/v2/query"
-        
         api_key = "AU2LAE-TE4HQU7YEP"
-        return "9 + 10 = 21"
+        input_eq = self.input_text.get()
+        # format the input equation to be used in the API call, all notation needs to be replaced with the corresponding URL encoding
+        input_eq = input_eq.replace(" ", "%20").replace("+", "%2B").replace("/", "%2F").replace("=", "%3D")
+        api_call = f"http://api.wolframalpha.com/v2/query?appid={api_key}&input={input_eq}&output=json"
+        res = self.get_data(api_call)
+        
+        return res
+    
+    def get_data(self, api_call):
+        response = requests.get(f"{api_call}")
+        if response.status_code == 200:
+            print("sucessfully fetched the data")
+            json_res = response.json()
+            res = json_res['queryresult']['pods'][1]['subpods'][0]['plaintext']
+            # if the result is a line, get the plot
+            if res=='line':
+                res = json_res['queryresult']['pods'][2]['subpods'][0]['plaintext']
+            # FIX THIS
+            
+            return res
+        else:
+            print(f"An error occured while sending API call: {response.status_code}")
+            return None
 
 def main():
     root = ctk.CTk()
