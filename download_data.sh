@@ -4,6 +4,8 @@
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 
+export PATH=$PATH:/home/$USER/.local/bin
+
 cd ~
 mkdir -p data && cd data
 mkdir -p math_expression_data && cd math_expression_data
