@@ -1,0 +1,4 @@
+train: /home/stiffi/data/math_expression_data/yolo_dataset_formated/train/images
+val: /home/stiffi/data/math_expression_data/yolo_dataset_formated/valid/images
+nc: 24
+names: ['+', '-', '=', 'x', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'y', 'z', '\\left(', '\\right)', '\\cos', '\\pi', '\\sin', '\\sqrt', '\\tan', '/']
