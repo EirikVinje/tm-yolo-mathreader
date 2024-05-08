@@ -9,8 +9,8 @@ opencv-python==4.9.0.80
 pandas==2.2.2.
 matplotlib==3.8.4
 gdown==5.1.0
-
-
+plotly==5.22.0
+asteval==0.9.32
 
 
 
