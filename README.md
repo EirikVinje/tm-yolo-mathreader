@@ -13,3 +13,5 @@ For YOLO training:
 For Tsetlin Machine training:
 
 [Handwritten math symbols dataset](<https://www.kaggle.com/datasets/xainano/handwrittenmathsymbols/discussion/32651>)
+
+**NOTE:** You will need to replace the API key to reproduce the results, as the API key is now deactivated.
