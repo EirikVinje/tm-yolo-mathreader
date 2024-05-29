@@ -1,7 +1,7 @@
 # tm-yolo-mathreader
 This repository holds the YOLO x Tsetlin Machine object detection and symbol prediction for reading handwritten math expressions.
 
-For a complete walkthrough of the project pipeline, head to _src/complete_walkthrough.ipynb_ and follow the notebook.
+For a complete walkthrough of the project pipeline, head to [_src/complete_walkthrough.ipynb_](https://github.com/EirikVinje/tm-yolo-mathreader/blob/main/src/complete_walkthrough.ipynb) and follow the notebook.
 
 ### Project authors:
 - Steffen Magnussen
